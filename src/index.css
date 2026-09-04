@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Custom Neo-Brutalist scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #FEF6E4;
+  border-left: 2px solid black;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFE066;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF90E8;
+}
+
+/* PRINT STYLES - Untuk cetak atau simpan jadi PDF */
+@media print {
+  .no-print { display: none !important; }
+  .print-layout { display: block !important; background: white !important; }
+  .print-area { padding: 0 !important; margin: 0 !important; width: 100% !important; max-width: 100% !important; }
+  body { background-color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .border-4 { border-width: 4px !important; border-color: black !important; }
+  .shadow-\[8px_8px_0px_0px_rgba\(0\,0\,0\,1\)\] { box-shadow: 8px 8px 0px 0px rgba(0,0,0,1) !important; }
+  .shadow-\[4px_4px_0px_0px_rgba\(0\,0\,0\,1\)\] { box-shadow: 4px 4px 0px 0px rgba(0,0,0,1) !important; }
+  .shadow-\[6px_6px_0px_0px_rgba\(0\,0\,0\,1\)\] { box-shadow: 6px 6px 0px 0px rgba(0,0,0,1) !important; }
+  .print-content { page-break-inside: avoid; }
+  ::-webkit-input-placeholder { color: transparent !important; }
+  ::placeholder { color: transparent !important; }
+}
+
+/* Risograph & Comic screentone patterns */
+.riso-halftone {
+  background-image: radial-gradient(#FA2A55 1.5px, transparent 1.5px);
+  background-size: 8px 8px;
+}
+
+.riso-halftone-blue {
+  background-image: radial-gradient(#0D2C54 1.5px, transparent 1.5px);
+  background-size: 8px 8px;
+}
+
+.riso-screen {
+  background-image: radial-gradient(#0D2C54 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
