@@ -1,16 +1,1008 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kesehatan Mental Remaja — Workbook Mandiri (4 Style Desain)</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Mono:wght@400;500&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Outfit:wght@400;600;700;800;900&family=Patrick+Hand&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-[#121212] text-black">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#FFD93D">
+  <meta name="description" content="Portal Edukasi Interaktif Ruang Tumbuh Remaja: Panduan Kesehatan Reproduksi dan Workbook Kesehatan Mental Remaja">
+  <title>Ruang Tumbuh Remaja • Portal Edukasi Interaktif</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Master Neo-Memphis CSS -->
+  <link rel="stylesheet" href="css/memphis-unified.css?v=20260908_v15">
+  
+  <!-- PWA Manifest & Mobile Icons -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+</head>
+<body>
+
+<div class="app-viewport">
+
+  <!-- Desktop Controls -->
+  <div class="desktop-sim-toggle no-print">
+    <button class="btn-m btn-m-white" style="font-size: 11.5px; padding: 6px 12px; box-shadow: var(--shadow-sm);" onclick="toggleContainerExpand()" title="Beralih antara tampilan luas dan simulasi layar HP">
+      <span id="desktop-toggle-text">📱 Mode Ponsel</span>
+    </button>
+  </div>
+
+  <!-- ==================== MAIN APP CONTAINER ==================== -->
+  <div class="phone-container memphis-bg">
+
+    <div id="view-portal" class="app-screen-view portal-screen active">
+      
+      <!-- Portal Header -->
+      <header class="app-header">
+        <div class="brand-tag">
+          <span class="brand-badge">PORTAL</span>
+          <span class="brand-title">RUANG TUMBUH REMAJA 🌟</span>
+        </div>
+        <button type="button" class="btn-m btn-m-white" style="font-size: 11px; padding: 4px 10px; box-shadow: var(--shadow-sm);" onclick="openAppGuidanceModal()" title="Panduan Cara Pakai & Jaminan Privasi">
+          💡 Cara Pakai
+        </button>
+      </header>
+
+      <!-- Portal Content Body -->
+      <main class="app-main custom-scroll" style="padding-bottom: 24px;">
+        
+        <!-- Hero Banner with Floating Memphis Deco -->
+        <div class="portal-hero">
+          <div class="memphis-shape shape-triangle">▲</div>
+          <div class="memphis-shape shape-circle">●</div>
+          <div class="memphis-shape shape-squiggle">〰️</div>
+          <div class="memphis-shape shape-cross">✦</div>
+          <div class="badge badge-magenta" style="margin-bottom: 6px; position: relative; z-index: 1;">SAFE SPACE • NO JUDGMENT</div>
+          <h1 class="portal-hero-title" style="position: relative; z-index: 1;">Ruang Tumbuh Remaja</h1>
+          <p class="portal-hero-desc" style="position: relative; z-index: 1;">
+            Pilih panduan interaktif yang kamu butuhkan hari ini. Santai, informatif, dan bebas tabu!
+          </p>
+        </div>
+
+        <!-- PWA Install Banner -->
+        <div id="pwa-install-banner" class="pwa-install-banner" style="display: none;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 24px;">📲</span>
+            <div>
+              <div style="font-family: var(--font-heading); font-size: 12.5px; font-weight: 800;">Pasang di Layar HP</div>
+              <div style="font-size: 11px; color: #555;">Akses instan &amp; 100% offline tanpa kuota!</div>
+            </div>
+          </div>
+          <button type="button" class="btn-m btn-m-primary" style="font-size: 11px; padding: 6px 12px; white-space: nowrap;" onclick="triggerPwaInstallPrompt()">
+            Pasang 📥
+          </button>
+        </div>
+
+        <!-- 2 Big Memphis Choice Cards -->
+        <div class="portal-cards-wrap">
+
+          <!-- CARD 1: KESPRO SPACE -->
+          <div class="portal-choice-card kespro" onclick="navigateTo('kespro')">
+            <div class="choice-header">
+              <span class="badge badge-yellow">🌸 E-BOOK INTERAKTIF</span>
+              <span style="font-size: 24px;">✨</span>
+            </div>
+            <h2 class="choice-title">KESPRO SPACE</h2>
+            <div style="font-size: 11px; font-weight: 800; color: #B21B35; margin-bottom: 6px;">
+              Cerdas Menyikapi Reproduksi, Teguh Menjaga Moralitas
+            </div>
+            <p class="choice-subtitle">
+              Panduan komprehensif kesehatan reproduksi remaja. Kupas tuntas pubertas, organ biologis, relasi sehat, dan perlindungan diri.
+            </p>
+            <div class="choice-features">
+              <span class="choice-feat-item">📖 30 Bab Lengkap</span>
+              <span class="choice-feat-item">👫 Dual-Track Jadi 1</span>
+              <span class="choice-feat-item">📱 PDF Edisi Smartphone</span>
+              <span class="choice-feat-item">🛡️ Pusat Safety &amp; SOS</span>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: 10px;">
+              <button class="btn-m btn-m-primary" style="font-size: 12.5px; flex: 1.6;" onclick="navigateTo('kespro')">
+                Buka Kespro Space 🚀
+              </button>
+              <a href="KESPRO_EXCELLENCE_Smartphone_Edition.pdf" download="KESPRO_EXCELLENCE_Smartphone_Edition.pdf" onclick="event.stopPropagation()" class="btn-m btn-m-white" style="font-size: 11.5px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 6px 10px; font-weight: 800;" title="Unduh PDF Kespro Smartphone Langsung">
+                📥 PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 2: YOUTH MENTAL HEALTH -->
+          <div class="portal-choice-card selfhelp" onclick="navigateTo('selfhelp')">
+            <div class="choice-header">
+              <span class="badge badge-pink">🧠 WORKBOOK INTERAKTIF</span>
+              <span style="font-size: 24px;">🌱</span>
+            </div>
+            <h2 class="choice-title">YOUTH MENTAL HEALTH</h2>
+            <div style="font-size: 11px; font-weight: 800; color: #9D174D; margin-bottom: 6px;">
+              Workbook Interaktif Menemukan Kembali Diri Sendiri
+            </div>
+            <p class="choice-subtitle">
+              Tempat aman untuk mengenali emosi, meredakan cemas, melatih self-compassion, dan membangun resiliensi mental di masa remaja.
+            </p>
+            <div class="choice-features">
+              <span class="choice-feat-item">📚 7 Kliping Tematik</span>
+              <span class="choice-feat-item">🤝 Jurnal Emosi 1–10</span>
+              <span class="choice-feat-item">📱 PDF Edisi Smartphone</span>
+              <span class="choice-feat-item">🛑 Metode S-T-O-P &amp; SEJIWA 119</span>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: 10px;">
+              <button class="btn-m btn-m-pink" style="font-size: 12.5px; flex: 1.6;" onclick="navigateTo('selfhelp')">
+                Buka Mental Health Hub 🚀
+              </button>
+              <a href="MENTAL_HEALTH_Smartphone_Edition.pdf" download="MENTAL_HEALTH_Smartphone_Edition.pdf" onclick="event.stopPropagation()" class="btn-m btn-m-white" style="font-size: 11.5px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 6px 10px; font-weight: 800;" title="Unduh PDF Workbook Smartphone Langsung">
+                📥 PDF
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Privacy & Local-First Manager Card -->
+        <div class="m-card" style="padding: 14px; background: #FFF; border: var(--border-sm); box-shadow: var(--shadow-sm); margin-top: 6px;">
+          <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+            <span style="font-size: 18px;">🔒</span>
+            <span style="font-family: var(--font-heading); font-size: 13px; font-weight: 800;">Privasi & Keamanan Lokal 100%</span>
+            <span class="badge badge-mint" style="margin: 0; font-size: 8.5px;">ZERO-DATABASE</span>
+          </div>
+          <p style="font-size: 11px; color: #555; line-height: 1.4; margin: 0 0 10px;">
+            Semua isian refleksi, siklus, dan jurnal emosimu hanya tersimpan di perangkat HP ini. Bebas intip dengan kunci PIN dan amankan lewat file cadangan mandiri.
+          </p>
+          
+          <div class="rt-security-status-widget" style="margin-bottom: 10px;"></div>
+
+          <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+            <button type="button" class="btn-m btn-m-white" style="flex: 1; font-size: 11px; padding: 6px;" onclick="exportAllUserData()">
+              📥 Cadangkan (.json)
+            </button>
+            <button type="button" class="btn-m btn-m-white" style="flex: 1; font-size: 11px; padding: 6px;" onclick="triggerImportUserData()">
+              📤 Pulihkan Data
+            </button>
+          </div>
+
+          <button type="button" class="btn-m btn-m-yellow btn-m-block" style="font-size: 11px; padding: 7px; font-weight: 800;" onclick="openAppGuidanceModal()">
+            💡 Buka Panduan: Cara Set PIN, Lupa PIN &amp; Bebas Bocor →
+          </button>
+        </div>
+
+      </main>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- SCREEN 1: KESPRO SPACE MINI-WEB (#view-kespro)               -->
+    <!-- ============================================================ -->
+    <div id="view-kespro" class="app-screen-view" style="display: none; flex-direction: column; height: 100%; position: relative;">
+      
+      <!-- Kespro Header -->
+      <header class="app-header">
+        <div class="brand-tag" onclick="navigateTo('portal')">
+          <span class="brand-badge">KESPRO</span>
+          <span class="brand-title">SPACE 🌟</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="action-island">
+            <button class="header-btn" onclick="navigateTo('portal')" title="Kembali ke Portal Hub">
+              <span>🏠</span>
+              <span class="btn-text-desktop">Portal</span>
+            </button>
+            <button class="header-btn" onclick="navigateTo('selfhelp')" title="Beralih ke Self-Help">
+              <span>🧠</span>
+              <span class="btn-text-desktop">Mental</span>
+            </button>
+            <button class="header-btn" onclick="openAppGuidanceModal()" title="Panduan Cara Pakai & Privasi">
+              <span>💡</span>
+              <span class="btn-text-desktop">Panduan</span>
+            </button>
+          </div>
+          <!-- Dual-Track Switcher Pill -->
+          <div id="kespro-track-pill" class="track-pill girl" onclick="toggleKesproTrack()" title="Ganti Jalur Cewek / Cowok">
+            <span>🙋‍♀️</span>
+            <span class="track-text-long">Cewek</span>
+            <span>🔄</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Kespro Main Body (4 Tabs) -->
+      <main class="app-main custom-scroll">
+        
+        <!-- ==================== TAB 1: 📖 E-BOOK READER ==================== -->
+        <div id="tab-kespro-ebook" class="tab-view active">
+          
+          <!-- Hero Card -->
+          <div class="hero-card">
+            <img src="assets/hero-cover.jpg" alt="Cover Kespro Space" class="hero-img hero-visual">
+            <div class="hero-body">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                <span class="badge badge-pink" style="margin: 0; font-size: 9.5px;">SAFE SPACE • NO JUDGMENT</span>
+                <span style="font-size: 9.5px; font-weight: 800; color: #666;">EDUKASI RESMI</span>
+              </div>
+              <h2 style="font-family: var(--font-heading); font-size: 16px; font-weight: 800; margin-bottom: 4px;">
+                Cerdas Menyikapi Reproduksi, Teguh Menjaga Moralitas
+              </h2>
+              <p style="font-size: 11.5px; color: #444; line-height: 1.45;">
+                Panduan komprehensif kesehatan reproduksi remaja. Bahasa santai, ramah, ilmiah, dan bebas tabu!
+              </p>
+            </div>
+          </div>
+
+          <!-- E-Book PDF Download Card -->
+          <div class="m-card m-card-pink" style="padding: 11px 13px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: #FF5E7E; color: #fff;">
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px; flex-wrap: wrap;">
+                <span class="badge badge-yellow" style="font-size: 9px; padding: 2px 7px; margin: 0; color: #000; font-weight: 800;">📱 EDISI SMARTPHONE</span>
+                <span style="font-size: 9.5px; font-weight: 800; color: #FFE500;">★ 1 FILE GABUNGAN LENGKAP</span>
+              </div>
+              <div style="font-size: 13px; font-weight: 900; color: #fff; line-height: 1.2;">
+                Unduh PDF E-Book Kespro Space
+              </div>
+              <div style="font-size: 10.5px; color: #FFF0F3; font-weight: 600; line-height: 1.35; margin-top: 2px;">
+                Jalur Cewek &amp; Cowok jadi 1 • 35 Halaman Pas Layar HP (Bebas Terputus)
+              </div>
+            </div>
+            <a href="KESPRO_EXCELLENCE_Smartphone_Edition.pdf" download="KESPRO_EXCELLENCE_Smartphone_Edition.pdf" class="btn-m btn-m-yellow" style="text-decoration: none; font-size: 11.5px; padding: 8px 12px; font-weight: 900; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; box-shadow: var(--shadow-sm);" title="Download E-Book PDF Smartphone">
+              <span>📥</span>
+              <span>Unduh PDF</span>
+            </a>
+          </div>
+
+          <!-- Track Notice -->
+          <div class="m-card m-card-yellow" style="padding: 10px 12px; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="font-size: 11.5px; font-weight: 700;">
+                🎯 <b>Jalur Aktif:</b> <span id="kespro-track-status-text">Jalur Cewek 🙋‍♀️</span>
+              </div>
+              <button class="btn-m btn-m-white" style="font-size: 10.5px; padding: 4px 8px;" onclick="toggleKesproTrack()">
+                Ganti Jalur 🔄
+              </button>
+            </div>
+          </div>
+
+          <!-- Search Input -->
+          <div style="margin-bottom: 10px;">
+            <input 
+              type="text" 
+              class="m-input" 
+              placeholder="🔍 Cari bab, topik, atau kata kunci..." 
+              oninput="onKesproSearch(this.value)"
+            >
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div class="cat-scroll-wrap">
+            <button class="cat-pill active" onclick="filterKesproCategory('all', this)">✨ Semua Bab</button>
+            <button class="cat-pill" onclick="filterKesproCategory('kenali', this)">🌱 Kenali Diri</button>
+            <button class="cat-pill" onclick="filterKesproCategory('tubuh', this)">🔬 Tubuh & Anatomi</button>
+            <button class="cat-pill" onclick="filterKesproCategory('relasi', this)">🤝 Relasi & Consent</button>
+            <button class="cat-pill" onclick="filterKesproCategory('sehat', this)">🥗 Gizi & Medis</button>
+            <button class="cat-pill" onclick="filterKesproCategory('keamanan', this)">🛡️ Keamanan & SOS</button>
+          </div>
+
+          <!-- Chapters List -->
+          <div id="kespro-chapter-list" class="chapter-list">
+            <!-- Rendered by kespro-app.js -->
+          </div>
+
+        </div>
+
+        <!-- ==================== TAB 2: 🎮 POJOK INTERAKTIF ==================== -->
+        <div id="tab-kespro-interactive" class="tab-view">
+          <div class="m-card m-card-yellow">
+            <span class="badge badge-mint">INTERACTIVE TOOLKIT</span>
+            <h2 style="font-family: var(--font-heading); font-size: 17px; margin-bottom: 4px;">Pojok Eksplorasi & Praktik 🎮</h2>
+            <p style="font-size: 12px; color: #444; line-height: 1.4;">
+              Pilih salah satu alat interaktif di bawah untuk menguji pemahaman, menghitung asupan jajan, dan mengeksplorasi tubuhmu!
+            </p>
+          </div>
+          <div id="kespro-interactive-hub-container"></div>
+        </div>
+
+        <!-- ==================== TAB 3: 🛡️ SAFETY & SOS ==================== -->
+        <div id="tab-kespro-safety" class="tab-view">
+          <div class="m-card m-card-yellow">
+            <span class="badge badge-pink">PERLINDUNGAN DIRI</span>
+            <h2 style="font-family: var(--font-heading); font-size: 17px; margin-bottom: 4px;">Pusat Keselamatan & Bantuan 🛡️</h2>
+            <p style="font-size: 12px; color: #444; line-height: 1.4;">
+              Kesiapsiagaan darurat pribadi, panduan tanggap pelecehan/kekerasan, dan akses layanan kesehatan ramah remaja.
+            </p>
+          </div>
+
+          <div class="tool-hub-grid">
+            <!-- Safety Tool 1 -->
+            <div class="tool-hub-card" onclick="openKesproTool('safety_card')">
+              <div class="tool-hub-header">
+                <span class="badge badge-mint">EMERGENCY CARD</span>
+                <span style="font-size: 20px;">📋</span>
+              </div>
+              <div class="tool-hub-title">Kartu Rencana Keselamatanku</div>
+              <div class="tool-hub-desc" id="kespro-safety-card-desc">
+                Catat kontak orang tepercaya, tempat aman terdekat, dan sandi darurat yang tersimpan di HP-mu.
+              </div>
+              <button class="btn-m btn-m-mint btn-m-block" style="font-size: 12px; padding: 8px;">
+                Buka / Edit Kartu Darurat 👉
+              </button>
+            </div>
+
+            <!-- Safety Tool 2 -->
+            <div class="tool-hub-card" onclick="openKesproTool('safety_guide')">
+              <div class="tool-hub-header">
+                <span class="badge badge-pink">HAK & PERLINDUNGAN</span>
+                <span style="font-size: 20px;">🛡️</span>
+              </div>
+              <div class="tool-hub-title">Panduan Tanggap Darurat: Lawan Pelecehan</div>
+              <div class="tool-hub-desc">
+                Langkah konkret 1-2-3 jika kamu atau temanmu mengalami pelecehan. Ingat: Kekerasan BUKAN salah korban!
+              </div>
+              <button class="btn-m btn-m-pink btn-m-block" style="font-size: 12px; padding: 8px;">
+                Buka Panduan Darurat 👉
+              </button>
+            </div>
+
+            <!-- Safety Tool 3 -->
+            <div class="tool-hub-card" onclick="openKesproTool('safety_hotline')">
+              <div class="tool-hub-header">
+                <span class="badge badge-blue">LAYANAN RAMAH REMAJA</span>
+                <span style="font-size: 20px;">🏥</span>
+              </div>
+              <div class="tool-hub-title">Puskesmas PKPR & Hotline Darurat Nasional</div>
+              <div class="tool-hub-desc">
+                Konsultasi gratis ramah remaja di Puskesmas (bebas stigma & privat), hotline SAPPA 129, dan Sejiwa 119.
+              </div>
+              <button class="btn-m btn-m-blue btn-m-block" style="font-size: 12px; padding: 8px;">
+                Lihat Nomor Kontak & Hotline 👉
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 4: 📌 CATATANKU ==================== -->
+        <div id="tab-kespro-notes" class="tab-view">
+          <div class="m-card m-card-yellow">
+            <span class="badge badge-mint">PERSONAL PROGRESS</span>
+            <h2 style="font-family: var(--font-heading); font-size: 17px; margin-bottom: 4px;">Catatanku & Refleksi Diri 📌</h2>
+            <p style="font-size: 12px; color: #444; line-height: 1.4;">
+              Pantau progres membacamu, simpan bab penting, dan catat afirmasi positif untuk mencintai tubuhmu sendiri.
+            </p>
+          </div>
+
+          <div class="notes-grid-layout">
+            <div>
+              <!-- Reading Progress -->
+              <div class="m-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                  <span style="font-size: 12.5px; font-weight: 800;">Progres Membaca Buku</span>
+                  <span id="kespro-read-percent" style="font-size: 14px; font-weight: 800; color: var(--coral-pink);">0%</span>
+                </div>
+                <div class="meter-bar">
+                  <div id="kespro-read-prog-bar" class="meter-fill" style="width: 0%;"></div>
+                </div>
+                <div id="kespro-read-prog-text" style="font-size: 11px; color: #666;">
+                  0 dari 30 Bab Selesai
+                </div>
+              </div>
+
+              <!-- Bookmarked Chapters -->
+              <div class="m-card">
+                <span class="badge badge-lavender">BAB TERSIMPAN</span>
+                <h3 style="font-family: var(--font-heading); font-size: 15px; margin-bottom: 8px;">⭐ Bab Favoritku</h3>
+                <div id="kespro-bookmark-list"></div>
+              </div>
+
+              <!-- Radar Relasi Result Card -->
+              <div id="kespro-radar-note-card" class="m-card" style="display: none; margin-top: 10px;">
+                <span class="badge badge-pink">EVALUASI RELASI SEHAT</span>
+                <h3 id="kespro-radar-note-title" style="font-family: var(--font-heading); font-size: 14px; margin-bottom: 4px;"></h3>
+                <div id="kespro-radar-note-desc" style="font-size: 11.5px; color: #444; line-height: 1.45; margin-bottom: 8px;"></div>
+                <button class="btn-m btn-m-pink btn-m-block" style="font-size: 11px; padding: 6px;" onclick="openKesproTool('radar')">
+                  Buka Radar Relasi 🚩
+                </button>
+              </div>
+
+              <!-- Keamanan & Cadangan Data Pribadi -->
+              <div class="m-card" style="margin-top: 10px;">
+                <span class="badge badge-yellow">PRIVASI PRIBADI</span>
+                <h3 style="font-family: var(--font-heading); font-size: 14px; margin-bottom: 6px;">🔒 Kunci PIN &amp; Cadangan</h3>
+                <div class="rt-security-status-widget" style="margin-bottom: 10px;"></div>
+                <div style="display: flex; gap: 6px;">
+                  <button type="button" class="btn-m btn-m-white" style="flex: 1; font-size: 10.5px; padding: 6px;" onclick="exportAllUserData()">
+                    📥 Backup (.json)
+                  </button>
+                  <button type="button" class="btn-m btn-m-white" style="flex: 1; font-size: 10.5px; padding: 6px;" onclick="triggerImportUserData()">
+                    📤 Pulihkan Data
+                  </button>
+                </div>
+                <button type="button" class="btn-text-link" style="font-size: 10.5px; margin-top: 6px; display: block; text-align: center; width: 100%;" onclick="openAppGuidanceModal()">
+                  💡 Panduan: Set PIN, Lupa PIN &amp; Cara Backup
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <!-- Affirmations -->
+              <div class="m-card m-card-mint">
+                <span class="badge badge-mint">BAB 04 • SELF-LOVE</span>
+                <h3 style="font-family: var(--font-heading); font-size: 15px; margin-bottom: 4px;">💖 3 Hal yang Aku Syukuri Hari Ini</h3>
+                <p style="font-size: 11.5px; color: #444; margin-bottom: 8px;">
+                  Latihan membangun konsep diri positif &amp; menghentikan rasa minder:
+                </p>
+                <textarea 
+                  id="kespro-aff-input" 
+                  class="m-textarea" 
+                  rows="3" 
+                  placeholder="1. Aku bersyukur tubuhku sehat...&#10;2. Aku bangga hari ini bisa...&#10;3. Aku ingin belajar hal baru yaitu..."
+                ></textarea>
+                <button class="btn-m btn-m-mint btn-m-block" style="margin-top: 8px;" onclick="saveKesproAffirmation()">
+                  Simpan Afirmasi Harian 💾
+                </button>
+              </div>
+
+              <!-- Personal Reflection Notes History -->
+              <div class="m-card" style="margin-top: 10px;">
+                <span class="badge badge-lavender">BUKU CATATANKU</span>
+                <h3 style="font-family: var(--font-heading); font-size: 14.5px; margin-bottom: 4px;">📝 Riwayat Catatan &amp; Refleksi</h3>
+                <p style="font-size: 11px; color: #555; margin-bottom: 8px;">
+                  Catat pertanyaan untuk nakes/konselor atau perubahan tubuh yang kamu rasakan:
+                </p>
+                
+                <div style="margin-bottom: 8px;">
+                  <select id="kespro-note-category" class="m-input" style="font-size: 11.5px; margin-bottom: 6px;">
+                    <option value="Perubahan Tubuh &amp; Pubertas">Perubahan Tubuh &amp; Pubertas</option>
+                    <option value="Batasan Diri &amp; Relasi">Batasan Diri &amp; Relasi</option>
+                    <option value="Pertanyaan untuk Nakes/Konselor">Pertanyaan untuk Nakes/Konselor</option>
+                    <option value="Catatan Bebas">Catatan Bebas</option>
+                  </select>
+                  <textarea id="kespro-note-text" class="m-textarea" rows="3" placeholder="Tulis catatan atau pertanyaanmu di sini..."></textarea>
+                </div>
+                <button class="btn-m btn-m-primary btn-m-block" style="font-size: 11.5px; padding: 6px;" onclick="saveKesproPersonalNote()">
+                  Simpan Catatan ke Riwayat 💾
+                </button>
+
+                <div style="margin-top: 14px;">
+                  <div style="font-size: 11px; font-weight: 800; color: #444; margin-bottom: 6px;">Arsip Catatan Pribadi:</div>
+                  <div id="kespro-notes-history-list"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Bottom Nav (4 Tabs) Dock -->
+      <footer class="app-footer-dock">
+        <nav class="app-nav">
+          <div class="nav-item active" onclick="switchKesproTab('tab-kespro-ebook', this)">
+            <span class="nav-icon">📖</span>
+            <span>E-Book</span>
+          </div>
+          <div class="nav-item" onclick="switchKesproTab('tab-kespro-interactive', this)">
+            <span class="nav-icon">🎮</span>
+            <span>Interaktif</span>
+          </div>
+          <div class="nav-item" onclick="switchKesproTab('tab-kespro-safety', this)">
+            <span class="nav-icon">🛡️</span>
+            <span>Safety</span>
+          </div>
+          <div class="nav-item" onclick="switchKesproTab('tab-kespro-notes', this)">
+            <span class="nav-icon">📌</span>
+            <span>Catatanku</span>
+          </div>
+        </nav>
+      </footer>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- SCREEN 2: SELF-HELP MENTAL HEALTH MINI-WEB (#view-selfhelp) -->
+    <!-- ============================================================ -->
+    <div id="view-selfhelp" class="app-screen-view" style="display: none; flex-direction: column; height: 100%; position: relative;">
+      
+      <!-- Self-Help Header (100% Identical Layout) -->
+      <header class="app-header">
+        <div class="brand-tag" onclick="navigateTo('portal')">
+          <span class="brand-badge brand-badge-mental">MENTAL</span>
+          <span class="brand-title">HEALTH 🧠</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="action-island">
+            <button class="header-btn" onclick="navigateTo('portal')" title="Kembali ke Portal Hub">
+              <span>🏠</span>
+              <span class="btn-text-desktop">Portal</span>
+            </button>
+            <button class="header-btn" onclick="navigateTo('kespro')" title="Beralih ke Kespro Space">
+              <span>🌸</span>
+              <span class="btn-text-desktop">Kespro</span>
+            </button>
+            <button class="header-btn" onclick="openAppGuidanceModal()" title="Panduan Cara Pakai & Privasi">
+              <span>💡</span>
+              <span class="btn-text-desktop">Panduan</span>
+            </button>
+          </div>
+          <div class="track-pill" onclick="switchSelfHelpTab('tab-selfhelp-notes', document.querySelectorAll('#view-selfhelp .nav-item')[3])" title="Profil Remaja">
+            <span>🏷️</span>
+            <span class="track-text-long">Profil</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Self-Help Main Body (4 Tabs) -->
+      <main class="app-main custom-scroll">
+        
+        <!-- ==================== TAB 1: 📖 MATERI & KLIPING ==================== -->
+        <div id="tab-selfhelp-materi" class="tab-view active">
+          
+          <!-- Hero Card -->
+          <div class="hero-card">
+            <img src="assets/mental-health-hero.jpg" alt="Cover Mental Health Space" class="hero-img hero-visual">
+            <div class="hero-body">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                <span class="badge badge-magenta" style="margin: 0; font-size: 9.5px;">SAFE SPACE • NO JUDGMENT</span>
+                <span style="font-size: 9.5px; font-weight: 800; color: #666;">WORKBOOK RESMI</span>
+              </div>
+              <h2 style="font-family: var(--font-heading); font-size: 16px; font-weight: 800; margin-bottom: 4px;">
+                Kenali Diri • Kelola Emosi • Bangun Hidup Lebih Baik
+              </h2>
+              <p style="font-size: 11.5px; color: #444; line-height: 1.45;">
+                Panduan edukasi psikologis segar, bebas stigma, dan mudah dipraktikkan untuk remaja tangguh!
+              </p>
+            </div>
+          </div>
+
+          <!-- E-Book PDF Download Card -->
+          <div class="m-card m-card-pink" style="padding: 11px 13px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: #FF5E7E; color: #fff;">
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px; flex-wrap: wrap;">
+                <span class="badge badge-yellow" style="font-size: 9px; padding: 2px 7px; margin: 0; color: #000; font-weight: 800;">📱 EDISI SMARTPHONE</span>
+                <span style="font-size: 9.5px; font-weight: 800; color: #FFE500;">★ 1 FILE WORKBOOK LENGKAP</span>
+              </div>
+              <div style="font-size: 13px; font-weight: 900; color: #fff; line-height: 1.2;">
+                Unduh PDF Workbook Mental Health
+              </div>
+              <div style="font-size: 10.5px; color: #FFF0F3; font-weight: 600; line-height: 1.35; margin-top: 2px;">
+                10 Halaman Pas Layar HP • Latihan S-T-O-P, Jurnal Rasa &amp; Hotline SEJIWA 119
+              </div>
+            </div>
+            <a href="MENTAL_HEALTH_Smartphone_Edition.pdf" download="MENTAL_HEALTH_Smartphone_Edition.pdf" class="btn-m btn-m-yellow" style="text-decoration: none; font-size: 11.5px; padding: 8px 12px; font-weight: 900; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; box-shadow: var(--shadow-sm);" title="Download Workbook PDF Smartphone">
+              <span>📥</span>
+              <span>Unduh PDF</span>
+            </a>
+          </div>
+
+          <!-- Mood Check-In Notice / Quick Action Tracker -->
+          <div class="m-card m-card-yellow" style="padding: 10px 12px; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="font-size: 11.5px; font-weight: 700;">
+                🎯 <b>Check-in Emosi:</b> <span id="selfhelp-mood-status-text">Yuk kenali perasaanmu hari ini! ✨</span>
+              </div>
+              <button class="btn-m btn-m-white" style="font-size: 10.5px; padding: 4px 8px;" onclick="switchSelfHelpTab('tab-selfhelp-jurnal', document.querySelectorAll('#view-selfhelp .nav-item')[1])">
+                Catat Mood ✍️
+              </button>
+            </div>
+          </div>
+
+          <!-- Search Input -->
+          <div style="margin-bottom: 10px;">
+            <input 
+              type="text" 
+              class="m-input" 
+              placeholder="🔍 Cari materi, topik, atau kata kunci..." 
+              oninput="onSelfHelpSearch(this.value)"
+            >
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div class="cat-scroll-wrap">
+            <button class="cat-pill active" onclick="filterSelfHelpCategory('all', this)">✨ Semua Materi</button>
+            <button class="cat-pill" onclick="filterSelfHelpCategory('pengenalan', this)">🌱 Dasar Mental</button>
+            <button class="cat-pill" onclick="filterSelfHelpCategory('pikiran', this)">🔋 Energi & Pikiran</button>
+            <button class="cat-pill" onclick="filterSelfHelpCategory('emosi', this)">🚨 Emosi & Self-Love</button>
+            <button class="cat-pill" onclick="filterSelfHelpCategory('relasi', this)">👥 Relasi & Resiliensi</button>
+          </div>
+
+          <!-- Chapters List -->
+          <div id="selfhelp-chapter-list" class="chapter-list">
+            <!-- Rendered by selfhelp-app.js -->
+          </div>
+
+        </div>
+
+        <!-- ==================== TAB 2: 🤝 JURNAL EMOSI ==================== -->
+        <div id="tab-selfhelp-jurnal" class="tab-view">
+          
+          <div class="m-card m-card-pink">
+            <span class="badge badge-magenta">EMOTION DIARY</span>
+            <h2 style="font-family: var(--font-heading); font-size: 17px; margin-bottom: 4px;">Jurnal Rasa Interaktif 🤝</h2>
+            <p style="font-size: 12px; color: #444; line-height: 1.4;">
+              Kenali gelombang emosimu tanpa mencela diri sendiri. Emosi bukanlah musuh, melainkan kawan yang membunyikan sinyal.
+            </p>
+          </div>
+
+          <div class="jurnal-grid-layout">
+            <!-- Form Jurnal -->
+            <div class="m-card">
+              
+              <!-- A. Mood Picker -->
+              <label style="font-size: 12px; font-weight: 800; display: block; margin-bottom: 4px;">
+                A. Emosi apa yang paling kamu rasakan hari ini?
+              </label>
+              <div id="sh-mood-pills" class="mood-pill-wrap">
+                <!-- Loaded by selfhelp-app.js -->
+              </div>
+
+              <!-- B & C: Situasi & Pikiran Grid -->
+              <div class="m-grid-2" style="margin-top: 12px;">
+                <div>
+                  <label style="font-size: 12px; font-weight: 800; display: block; margin-bottom: 4px;">
+                    B. Apa yang terjadi? (Situasi Pemicu)
+                  </label>
+                  <textarea id="sh-jurnal-situasi" class="m-textarea" rows="3" placeholder="Misal: Ditegur guru karena tugas kelompok belum selesai..."></textarea>
+                </div>
+                <div>
+                  <label style="font-size: 12px; font-weight: 800; display: block; margin-bottom: 4px;">
+                    C. Apa praduga atau pikiran yang muncul?
+                  </label>
+                  <textarea id="sh-jurnal-pikiran" class="m-textarea" rows="3" placeholder="Misal: Aku merasa tidak berguna dan takut dimusuhi teman..."></textarea>
+                </div>
+              </div>
+
+              <!-- D. Intensitas Slider -->
+              <div style="margin-top: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                  <label style="font-size: 12px; font-weight: 800;">D. Seberapa kuat emosinya? (1–10)</label>
+                  <span class="badge badge-yellow" style="margin: 0; font-size: 11px;">
+                    Skor: <span id="sh-intensitas-value">5</span>/10
+                  </span>
+                </div>
+                <input 
+                  type="range" 
+                  id="sh-jurnal-intensitas" 
+                  class="intensity-slider" 
+                  min="1" 
+                  max="10" 
+                  value="5" 
+                  oninput="onEmotionSliderChange(this.value)"
+                >
+                <div style="display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 700; color: #666; margin-top: 2px;">
+                  <span>🌱 1 (Ringan)</span>
+                  <span>⚡ 5 (Sedang)</span>
+                  <span>🌊 10 (Sangat Kuat)</span>
+                </div>
+              </div>
+
+              <!-- E & F: Tindakan & Alternatif Grid -->
+              <div class="m-grid-2" style="margin-top: 12px;">
+                <div>
+                  <label style="font-size: 12px; font-weight: 800; display: block; margin-bottom: 4px;">
+                    E. Apa yang kamu lakukan setelahnya?
+                  </label>
+                  <input type="text" id="sh-jurnal-tindakan" class="m-input" placeholder="Misal: Menangis di kamar, mogok makan, diam seribu bahasa...">
+                </div>
+                <div>
+                  <label style="font-size: 12px; font-weight: 800; display: block; margin-bottom: 4px; color: #15803D;">
+                    F. Alternatif Respon Lebih Sehat:
+                  </label>
+                  <input type="text" id="sh-jurnal-alternatif" class="m-input" placeholder="Misal: Tarik napas STOP 3 kali, jelaskan pelan-pelan ke guru...">
+                </div>
+              </div>
+
+              <button class="btn-m btn-m-magenta btn-m-block" style="margin-top: 14px;" onclick="saveJournalEntry()">
+                Simpan Entri Jurnal Emosi 💾
+              </button>
+
+            </div>
+
+            <!-- Riwayat Jurnal & Insight Tren Mental -->
+            <div>
+              <div id="sh-mental-health-insights-container"></div>
+
+              <div class="m-card" style="margin-top: 10px;">
+                <span class="badge badge-lavender">CATATAN SEBELUMNYA</span>
+                <h3 style="font-family: var(--font-heading); font-size: 15px; margin-bottom: 8px;">📖 Riwayat Jurnal Emosiku</h3>
+                <div id="sh-journal-history"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ==================== TAB 3: 🎮 TOOLKIT & LATIHAN ==================== -->
+        <div id="tab-selfhelp-toolkit" class="tab-view">
+          
+          <div class="m-card m-card-yellow">
+            <span class="badge badge-magenta">TOOLKIT RESILIENSI</span>
+            <h2 style="font-family: var(--font-heading); font-size: 17px; margin-bottom: 4px;">Pojok Latihan Mental 🎮</h2>
+            <p style="font-size: 12px; color: #444; line-height: 1.4;">
+              Pilih salah satu latihan di bawah untuk meredakan kepanikan, menguji praduga overthinking, dan memetakan kontak suportif.
+            </p>
+          </div>
+
+          <div id="selfhelp-toolkit-hub-container">
+            <!-- Loaded by selfhelp-app.js -->
+          </div>
+
+        </div>
+
+        <!-- ==================== TAB 4: 📌 CATATANKU & RENCANA ==================== -->
+        <div id="tab-selfhelp-notes" class="tab-view">
+          
+          <div class="m-card m-card-yellow">
+            <span class="badge badge-mint">PROGRESS & PROFILE</span>
+            <h2 style="font-family: var(--font-heading); font-size: 17px; margin-bottom: 4px;">Catatan & Rencana Diri 📌</h2>
+            <p style="font-size: 12px; color: #444; line-height: 1.4;">
+              Pantau progres materi, simpan 3 hal baik harian, dan unduh ringkasan hasil latihanmu ke dokumen PDF.
+            </p>
+          </div>
+
+          <div class="notes-grid-layout">
+            <div>
+              <!-- Reading & Workbook Progress -->
+              <div class="m-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                  <span style="font-size: 12.5px; font-weight: 800;">Progres Pembelajaran Materi</span>
+                  <span id="selfhelp-read-percent" style="font-size: 14px; font-weight: 800; color: var(--hot-pink);">0%</span>
+                </div>
+                <div class="meter-bar">
+                  <div id="selfhelp-read-prog-bar" class="meter-fill" style="width: 0%; background: var(--hot-pink);"></div>
+                </div>
+                <div id="selfhelp-read-prog-text" style="font-size: 11px; color: #666;">
+                  0 dari 7 Materi Selesai
+                </div>
+              </div>
+
+              <!-- Bookmarked Articles -->
+              <div class="m-card">
+                <span class="badge badge-lavender">MATERI TERSIMPAN</span>
+                <h3 style="font-family: var(--font-heading); font-size: 15px; margin-bottom: 8px;">⭐ Materi Favoritku</h3>
+                <div id="selfhelp-bookmark-list"></div>
+              </div>
+
+              <!-- Profil Remaja -->
+              <div class="m-card">
+                <span class="badge badge-yellow">PROFIL PEMILIK</span>
+                <h3 style="font-family: var(--font-heading); font-size: 15px; margin-bottom: 8px;">👤 Identitas Workbook</h3>
+                <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                  <div style="flex: 2;">
+                    <label style="font-size: 11px; font-weight: 800; display: block; margin-bottom: 3px;">Nama Panggilan:</label>
+                    <input type="text" id="sh-prof-nama" class="m-input" placeholder="Siapa namamu?">
+                  </div>
+                  <div style="flex: 1;">
+                    <label style="font-size: 11px; font-weight: 800; display: block; margin-bottom: 3px;">Kelas / Usia:</label>
+                    <input type="text" id="sh-prof-usia" class="m-input" placeholder="Misal: 15 thn">
+                  </div>
+                </div>
+                <button class="btn-m btn-m-white btn-m-block" onclick="saveSelfHelpProfile()">
+                  Simpan Profil 💾
+                </button>
+              </div>
+
+              <!-- Keamanan & Cadangan Data Pribadi -->
+              <div class="m-card" style="margin-top: 10px;">
+                <span class="badge badge-yellow">PRIVASI PRIBADI</span>
+                <h3 style="font-family: var(--font-heading); font-size: 14px; margin-bottom: 6px;">🔒 Kunci PIN &amp; Cadangan</h3>
+                <div class="rt-security-status-widget" style="margin-bottom: 10px;"></div>
+                <div style="display: flex; gap: 6px;">
+                  <button type="button" class="btn-m btn-m-white" style="flex: 1; font-size: 10.5px; padding: 6px;" onclick="exportAllUserData()">
+                    📥 Backup (.json)
+                  </button>
+                  <button type="button" class="btn-m btn-m-white" style="flex: 1; font-size: 10.5px; padding: 6px;" onclick="triggerImportUserData()">
+                    📤 Pulihkan Data
+                  </button>
+                </div>
+                <button type="button" class="btn-text-link" style="font-size: 10.5px; margin-top: 6px; display: block; text-align: center; width: 100%;" onclick="openAppGuidanceModal()">
+                  💡 Panduan: Set PIN, Lupa PIN &amp; Cara Backup
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <!-- Gratitude Journal (3 Hal Baik) -->
+              <div class="m-card m-card-mint">
+                <span class="badge badge-mint">GRATITUDE JOURNAL</span>
+                <h3 style="font-family: var(--font-heading); font-size: 15px; margin-bottom: 4px;">🌻 3 Hal yang Aku Syukuri Hari Ini</h3>
+                <p style="font-size: 11.5px; color: #444; margin-bottom: 8px;">
+                  Menyadari hal baik yang tetap ada di tengah hari yang tidak sempurna:
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <input type="text" id="sh-grat-1" class="m-input" placeholder="1. Hari ini aku bersyukur karena...">
+                  <input type="text" id="sh-grat-2" class="m-input" placeholder="2. Mengapa hal ini berarti bagiku?">
+                  <input type="text" id="sh-grat-3" class="m-input" placeholder="3. Hal kecil yang ingin aku nikmati besok:">
+                </div>
+                <button class="btn-m btn-m-mint btn-m-block" style="margin-top: 10px;" onclick="saveSelfHelpGratitude()">
+                  Simpan 3 Hal Baik 💾
+                </button>
+
+                <div style="margin-top: 12px; border-top: 1px dashed rgba(0,0,0,0.15); padding-top: 8px;">
+                  <div style="font-size: 11px; font-weight: 800; color: #333; margin-bottom: 4px;">Riwayat 3 Hal Baik Sebelumnya:</div>
+                  <div id="sh-gratitude-history-list"></div>
+                </div>
+              </div>
+
+              <!-- Print & Reset Actions -->
+              <div class="m-card" style="text-align: center;">
+                <h4 style="font-size: 13px; font-weight: 800; margin-bottom: 6px;">Cetak &amp; Kelola Dokumen</h4>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <button class="btn-m btn-m-dark btn-m-block" onclick="printSelfHelpWorkbook()">
+                    📑 Cetak Seluruh Workbook ke PDF
+                  </button>
+                  <button class="btn-m btn-m-white btn-m-block" style="color: #DC2626; border-color: #DC2626;" onclick="resetSelfHelpWorkbook()">
+                    🗑️ Reset Seluruh Isian Workbook
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+
+      <!-- Bottom Nav (4 Tabs) Dock -->
+      <footer class="app-footer-dock">
+        <nav class="app-nav">
+          <div class="nav-item active" onclick="switchSelfHelpTab('tab-selfhelp-materi', this)">
+            <span class="nav-icon">📖</span>
+            <span>Materi</span>
+          </div>
+          <div class="nav-item" onclick="switchSelfHelpTab('tab-selfhelp-jurnal', this)">
+            <span class="nav-icon">🤝</span>
+            <span>Jurnal</span>
+          </div>
+          <div class="nav-item" onclick="switchSelfHelpTab('tab-selfhelp-toolkit', this)">
+            <span class="nav-icon">🎮</span>
+            <span>Toolkit</span>
+          </div>
+          <div class="nav-item" onclick="switchSelfHelpTab('tab-selfhelp-notes', this)">
+            <span class="nav-icon">📌</span>
+            <span>Catatanku</span>
+          </div>
+        </nav>
+      </footer>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- SHARED IN-APP CHAPTER READER OVERLAY (#reader-overlay)       -->
+    <!-- ============================================================ -->
+    <div id="reader-overlay" class="reader-overlay">
+      <!-- Scroll Progress Bar -->
+      <div id="reader-prog-bar" class="reader-prog-bar"></div>
+
+      <!-- Reader Header -->
+      <div class="reader-header">
+        <button class="btn-m btn-m-white" style="font-size: 11px; padding: 5px 9px; flex-shrink: 0; white-space: nowrap;" onclick="closeReaderOverlay()">
+          ← Kembali
+        </button>
+        <div style="flex: 1; min-width: 0; text-align: center; overflow: hidden; padding: 0 4px;">
+          <div id="reader-category" style="font-size: 9.5px; font-weight: 800; color: #666; text-transform: uppercase;"></div>
+          <div id="reader-title" style="font-family: var(--font-heading); font-size: 12.5px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></div>
+        </div>
+        <div style="display: flex; gap: 4px; align-items: center; flex-shrink: 0;">
+          <button class="btn-m btn-m-white" style="font-size: 11px; padding: 4px 6px;" onclick="toggleReaderFontSize()" title="Ubah Ukuran Teks">
+            A±
+          </button>
+          <button id="reader-bm-btn" class="btn-m btn-m-white" style="font-size: 11px; padding: 4px 6px;" onclick="toggleReaderBookmark()" title="Simpan Bab">
+            ☆
+          </button>
+        </div>
+      </div>
+
+      <!-- Reader Scrollable Content -->
+      <div id="reader-content" class="reader-body custom-scroll reader-font-md" onscroll="updateReaderReadingProgress()">
+        <!-- Injected dynamically by portal.js -->
+      </div>
+
+      <!-- Reader Bottom Bar -->
+      <div class="reader-footer">
+        <button id="reader-prev-btn" class="btn-m btn-m-white reader-nav-btn" onclick="navigateReaderChapter(-1)">
+          <span class="btn-text-full">← Bab Sebelumnya</span>
+          <span class="btn-text-short">← Sebelumnya</span>
+        </button>
+        <button id="reader-mark-read-btn" class="btn-m btn-m-white reader-nav-btn" onclick="toggleReaderMarkRead()">
+          <span class="btn-text-full">✔️ Tandai Selesai</span>
+          <span class="btn-text-short">✔️ Selesai</span>
+        </button>
+        <button id="reader-next-btn" class="btn-m btn-m-yellow reader-nav-btn" onclick="navigateReaderChapter(1)">
+          <span class="btn-text-full">Bab Berikutnya →</span>
+          <span class="btn-text-short">Berikutnya →</span>
+        </button>
+      </div>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- SHARED FOCUSED TOOL MODAL OVERLAY (#tool-modal-overlay)     -->
+    <!-- ============================================================ -->
+    <div id="tool-modal-overlay" class="tool-modal-overlay">
+      <div class="tool-modal-backdrop" onclick="closeToolModal()"></div>
+      <div class="tool-modal-dialog">
+        <div class="tool-modal-header">
+          <button class="btn-m btn-m-white" style="font-size: 11px; padding: 4px 8px;" onclick="closeToolModal()">
+            ← Kembali
+          </button>
+          <div style="flex: 1; text-align: center; overflow: hidden; padding: 0 4px;">
+            <div id="tool-modal-badge" style="font-size: 9.5px; font-weight: 800; color: #666; text-transform: uppercase;"></div>
+            <div id="tool-modal-title" style="font-family: var(--font-heading); font-size: 12.5px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></div>
+          </div>
+          <button class="btn-m btn-m-white" style="font-size: 11px; padding: 4px 8px;" onclick="closeToolModal()" title="Tutup Modal">
+            ✕
+          </button>
+        </div>
+
+        <div id="tool-modal-body" class="tool-modal-body custom-scroll">
+          <!-- Injected dynamically by kespro-app.js / selfhelp-app.js -->
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Shared Toast Notification -->
+    <div id="app-toast" class="m-toast">Notifikasi</div>
+
+    <!-- Hidden Universal File Input for Backup Import -->
+    <input type="file" id="rt-universal-file-input" accept=".json" style="display: none;" onchange="handleImportFileSelected(event)">
+
+  </div> <!-- End .phone-container -->
+
+</div> <!-- End .app-viewport -->
+
+<!-- GSAP Animation Library & ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- Security, Backup, Guidance & Insights Modules (Zero-Database Architecture) -->
+<script src="js/security-manager.js"></script>
+<script src="js/backup-manager.js"></script>
+<script src="js/mental-health-insights.js"></script>
+<script src="js/guidance-manager.js"></script>
+
+<!-- Content & Application Scripts -->
+<script src="js/kespro-content.js?v=20260910_v16"></script>
+<script src="js/selfhelp-content.js?v=20260910_v16"></script>
+<script src="js/kespro-app.js?v=20260910_v16"></script>
+<script src="js/selfhelp-app.js?v=20260910_v16"></script>
+<script src="js/portal.js?v=20260910_v16"></script>
+
+<!-- PWA Service Worker Registration & Install Trigger -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('PWA ServiceWorker registered with scope:', reg.scope))
+        .catch(err => console.warn('PWA ServiceWorker registration error:', err));
+    });
+  }
+
+  let deferredPwaPrompt = null;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPwaPrompt = e;
+    const banner = document.getElementById('pwa-install-banner');
+    if (banner) banner.style.display = 'flex';
+  });
+
+  function triggerPwaInstallPrompt() {
+    if (deferredPwaPrompt) {
+      deferredPwaPrompt.prompt();
+      deferredPwaPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          showToast('🎉 Aplikasi sedang dipasang di layar HP!');
+        }
+        deferredPwaPrompt = null;
+        const banner = document.getElementById('pwa-install-banner');
+        if (banner) banner.style.display = 'none';
+      });
+    } else {
+      alert('Cara Memasang ke Layar Utama HP:\n\n📱 Di Android (Chrome): Tekan tombol menu titik tiga (⋮) di pojok kanan atas, lalu pilih "Tambahkan ke Layar Utama" (Add to Home screen).\n\n🍏 Di iPhone (Safari): Tekan tombol Bagikan (Share / ikon kotak panah ke atas) di bawah, lalu pilih "Tambah ke Layar Utama" (Add to Home Screen).');
+    }
+  }
+</script>
+
+</body>
 </html>

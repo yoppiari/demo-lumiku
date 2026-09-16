@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="100" fill="#FFD93D" stroke="#18181B" stroke-width="16"/>
+  <!-- Memphis decorative squiggles and dots -->
+  <circle cx="100" cy="100" r="24" fill="#FF6B6B" stroke="#18181B" stroke-width="8"/>
+  <circle cx="420" cy="120" r="18" fill="#6BCB77" stroke="#18181B" stroke-width="8"/>
+  <circle cx="80" cy="400" r="20" fill="#4D96FF" stroke="#18181B" stroke-width="8"/>
+  <path d="M380 380 L420 420 M420 380 L380 420" stroke="#18181B" stroke-width="12" stroke-linecap="round"/>
+  
+  <!-- Central Shield / Book badge -->
+  <rect x="116" y="116" width="280" height="280" rx="40" fill="#FFFFFF" stroke="#18181B" stroke-width="16"/>
+  <!-- Inner Book / Heart Symbol -->
+  <path d="M256 180 C220 140 160 170 170 230 C180 290 256 340 256 340 C256 340 332 290 342 230 C352 170 292 140 256 180 Z" fill="#FF6B6B" stroke="#18181B" stroke-width="12"/>
+  <!-- Text KESPRO -->
+  <rect x="156" y="370" width="200" height="44" rx="12" fill="#D1A7FF" stroke="#18181B" stroke-width="8"/>
+  <text x="256" y="402" font-family="sans-serif" font-weight="900" font-size="24" fill="#18181B" text-anchor="middle" letter-spacing="2">KESPRO</text>
+</svg>

@@ -1,86 +1,99 @@
-# 🧠 Kesehatan Mental Remaja — Self Help Workbook WebApp
+# 🌟 Ruang Tumbuh Remaja — Portal Edukasi Interaktif
 
-Aplikasi interaktif web-based untuk workbook **"Kesehatan Mental Remaja: Kenali diri • Kelola emosi • Bangun hidup yang lebih baik"**.
-
-Tersedia dalam **4 Pilihan Gaya Desain (4 Alternatif Lengkap)**:
-1. ⚡ **Neo-Brutalism Style** (Warna pop, outline hitam tebal, shadow tegas 8px, modern & bold).
-2. 📓 **Scrapbook Journal Style** (Kesan buku harian hangat, washi tape, sticky notes pastel, pin 📌, paperclip 📎, font tulisan tangan).
-3. 🎨 **Memphis Design Style** (Estetika retro 80s/90s Postmodern Ettore Sottsass, pola polka-dot / squiggle / confetti, warna energetik, tipografi Space Grotesk / Outfit).
-4. 🖨️ **Risograph Indie Zine Style** (Estetika cetak stensil Riso, panel komik webtoon, duotone spot inks fluorescent pink & cobalt blue, registration marks ⌖, speech bubble narator).
-
-Keempat alternatif ini **berbagi penyimpanan data yang sama (`localStorage`)**. Jadi apa pun jawaban yang kamu tulis di satu gaya desain akan otomatis tersinkronisasi saat kamu membuka gaya desain lainnya!
+Aplikasi web interaktif terpadu yang menggabungkan dua panduan penting tumbuh kembang remaja berbasis modul resmi edukasi kesehatan ke dalam **1 Portal Terpadu** bergaya **Neo-Memphis Design**:
+1. **🌸 KESPRO SPACE**: E-Book Interaktif & Panduan Lengkap Kesehatan Reproduksi Remaja.
+2. **🧠 YOUTH MENTAL HEALTH**: Workbook Interaktif Kesehatan Mental & Resiliensi Remaja.
 
 ---
 
-## 🚀 Cara Membuka (1 Halaman / Link Tunggal)
+## 🚀 Cara Menjalankan Aplikasi
 
-Aplikasi sekarang sudah disatukan menjadi **1 Link / 1 Halaman Utama** yang dilengkapi **Tombol Switcher Style 1, 2, 3, dan 4**:
-- **⚡ Style 1**: Neo-Brutalism Style
-- **📓 Style 2**: Scrapbook Journal Style
-- **🎨 Style 3**: Memphis Design Style
-- **🖨️ Style 4**: Risograph Indie Zine Style
+Aplikasi ini bersifat **zero-dependency** (tanpa perlu build tool rumit, npm install, ataupun kompilasi). Dapat dijalankan secara instan dengan beberapa cara:
 
-### Opsi A: Lewat Server Lokal (Vite Web App)
-Jalankan `npm run dev` lalu buka:
-- 🔗 **Link Utama (1 Page All Styles)**: [http://localhost:5173/](http://localhost:5173/)
-- Atau langsung lompat via URL query parameter:
-  - Style 1: [http://localhost:5173/?style=1](http://localhost:5173/?style=1)
-  - Style 2: [http://localhost:5173/?style=2](http://localhost:5173/?style=2)
-  - Style 3: [http://localhost:5173/?style=3](http://localhost:5173/?style=3)
-  - Style 4: [http://localhost:5173/?style=4](http://localhost:5173/?style=4)
+### Cara 1: Buka Langsung di Browser
+Cukup **klik dua kali** (*double-click*) file:
+👉 **`index.html`**
 
-*(Tersedia tombol switcher melayang di bagian atas halaman serta di dalam sidebar untuk berpindah style secara instan tanpa reload).*
+### Cara 2: Lewat Web Server Lokal (Rekomendasi)
+Buka terminal di folder ini, lalu jalankan:
+```bash
+# Menggunakan Python 3:
+python3 -m http.server 8080
 
-### Opsi B: Buka Langsung Tanpa Terminal / Server (Standalone File)
-Cukup klik dua kali (double click) file HTML mandiri ini:
-- 🔗 **[`index-standalone.html`](./index-standalone.html)** *(Semua 4 style sudah tertanam dalam 1 file lengkap dengan tombol Style 1, 2, 3, dan 4)*
-
----
-
-## ✨ Fitur Lengkap di Setiap Desain
-
-1. **7 Modul Interaktif Sesuai Naskah**:
-   - 📖 **Cover & Lembar Profil**: Nama, Usia/Kelas, Disclaimer medis, panduan cara pemakaian.
-   - 📚 **Pojok Baca / Kliping Materi**:
-     - 🧠 Mengenal Kesehatan Mental
-     - 🔋 Pikiranmu Seperti Baterai HP
-     - 🚨 Emosi Bukanlah Musuh
-   - 🤝 **Jurnal Rasa / Emotion Diary**: Pilihan tag emosi, situasi pemicu, praduga pikiran, pengukur intensitas 1–10 slider, tindakan setelahnya, dan alternatif respon sehat.
-   - 🧠 **Kelola Pikiran (Stop Overthinking)**: Metode S-T-O-P, menantang asumsi negatif, dan teknik Grounding 5-4-3-2-1.
-   - ✨ **Kekuatan Diri & Self-Compassion**: 3 hal baik, masa sulit yang terlewati, berbicara lembut pada diri, dan checklist kebutuhan batin.
-   - 📴 **Keseharian & Evaluasi**: Gratitude journal harian, Stress diary, dan Digital Wellbeing habit check.
-   - 👥 **Support Circle & Rencana**: Pertemanan sehat vs waspada, daftar orang terpercaya tempat bercerita, dan rencana aksi kecil harian.
-
-2. **Penyimpanan Lokal Otomatis & Privat**:
-   - Semua isian tersimpan aman di browser tanpa database eksternal.
-
-3. **Fitur Cetak & Simpan PDF**:
-   - Cetak modul yang sedang aktif atau cetak seluruh buku menjadi dokumen PDF siap simpan.
-
----
-
-## 🗂️ Struktur File
+# Atau menggunakan npx serve:
+npx serve .
 ```
-self help/
-├── self help book versi baru.docx    # Naskah asli dokumen
-├── index.html                        # Entrypoint Vite: Neo-Brutalism
-├── scrapbook.html                    # Entrypoint Vite: Scrapbook
-├── memphis.html                      # Entrypoint Vite: Memphis Design
-├── index-standalone.html             # Single-file mandiri: Neo-Brutalism
-├── index-scrapbook.html              # Single-file mandiri: Scrapbook
-├── index-memphis.html                # Single-file mandiri: Memphis Design
-├── package.json                      # Konfigurasi npm
-├── vite.config.js                    # Multi-page build Vite (3 halaman)
-├── tailwind.config.js                # Konfigurasi font & tema Tailwind
-├── postcss.config.js                 # Konfigurasi PostCSS
-├── src/
-│   ├── main.jsx                      # React entrypoint Neo-Brutalism
-│   ├── App.jsx                       # Komponen Neo-Brutalism
-│   ├── scrapbook-main.jsx            # React entrypoint Scrapbook
-│   ├── ScrapbookApp.jsx              # Komponen Scrapbook
-│   ├── memphis-main.jsx              # React entrypoint Memphis
-│   ├── MemphisApp.jsx                # Komponen Memphis Design
-│   └── index.css                     # Styling Tailwind & Print logic
-├── dist/                             # Output build produksi lengkap (3 apps)
-└── README.md                         # Dokumentasi panduan
+Lalu buka peramban di: **`http://localhost:8080`**
+
+---
+
+## 🎨 Keunggulan Rombak Total (Unified Memphis Style)
+
+1. **1 Gerbang Masuk Terpadu (`#portal`)**:
+   - Pengguna disambut oleh *Portal Selector Hub* dengan visual retro-pop Memphis energetik.
+   - Pilihan instan antara **Kespro Space** atau **Self Help Workbook**.
+   - Dilengkapi tombol navigasi `🏠 Portal` dan tombol alih antar-modul di header kedua aplikasi.
+
+2. **100% Memphis Design System**:
+   - Seluruh elemen antarmuka menggunakan garis tepi hitam tegas (*hard black outline*), bayangan pop offset (*hard drop shadow*), pola geometris (*polka dots, squiggles, badges*), dan tipografi *Space Grotesk* + *Plus Jakarta Sans*.
+   - Seluruh opsi multi-tema pada Self Help telah **dihapus**, dikunci permanen pada estetika Memphis.
+
+3. **Penyetaraan Total Layout & Pengalaman Pengguna (100% UX Parity)**:
+   - **Shell Mobile-First:** Keduanya menggunakan *Phone Frame Container* terpusat di desktop (dengan tombol toggle *Mode Lebar*) dan responsif penuh di layar ponsel.
+   - **Struktur 4-Tab Bottom Navigation yang Presisi:**
+     - **Kespro Space:** `📖 E-Book` | `🎮 Interaktif` | `🛡️ Safety` | `📌 Catatanku`
+     - **Self-Help Workbook:** `📖 Materi` | `🤝 Jurnal` | `🎮 Toolkit` | `📌 Catatanku`
+   - **In-App Reader Overlay:** Membaca bab maupun materi kliping membuka lembar baca layar penuh yang sama, dilengkapi scroll progress bar, pengaturan ukuran font (A±), bookmark bintang (☆), dan checklist selesai (✔️).
+   - **Tool Modal Overlay:** Seluruh latihan dan kuis interaktif (Anatomi, Radar Red/Green Flag, Metode S-T-O-P, Grounding 5-4-3-2-1, CBT Reframing, Cek Layar) terbuka dalam modal fokus yang seragam.
+
+4. **Penyimpanan Lokal & Fitur Cetak (Zero-Database Architecture):**
+   - Semua isian jurnal emosi, riwayat grounding, afirmasi harian, bab tersimpan, dan kartu keselamatan disimpan otomatis di perambanmu (`localStorage`).
+   - Sanggup melayani **30.000+ pengguna simultan** tanpa database server dengan biaya hosting Rp0 (100% Client-Side).
+   - **PWA Ready (Progressive Web App):** Dilengkapi `manifest.json` dan `sw.js` (Service Worker) agar bisa dipasang ke layar utama HP dan bekerja 100% offline tanpa internet.
+   - **Keamanan PIN 4-Digit (App Lock):** Menggunakan Web Crypto API (SHA-256) dengan sistem pemulihan mandiri 3 lapis (*Pertanyaan Rahasia*, *Recovery Key 6-karakter*, dan *Reset Backup*).
+   - **Universal Backup & Restore:** 1-klik ekspor dan impor file `.json` cadangan data mandiri.
+   - **Riwayat Lengkap & Mesin Analisis Tren Mental Health:** Merekam jejak emosi tanpa batas dan secara otomatis mendiagnosis kecenderungan kondisi mental (Burnout, Anxiety, Low Mood, Resilien) lengkap dengan persentase emosi dominan dan rekomendasi tindakan adaptif.
+
+---
+
+## 🗂️ Struktur File Proyek
+
 ```
+ruang-tumbuh-remaja/
+├── index.html                    # 🚀 Entry point tunggal: Portal Hub & Router
+├── manifest.json                 # 📱 Konfigurasi PWA (Progressive Web App)
+├── sw.js                         # ⚡ Service Worker offline caching
+├── README.md                     # 📖 Panduan dokumentasi proyek
+├── css/
+│   └── memphis-unified.css       # 🎨 Master Design System Neo-Memphis
+├── js/
+│   ├── portal.js                 # 🧭 Router navigasi & shared overlay engine
+│   ├── security-manager.js       # 🔒 PIN Lock, SHA-256 Web Crypto & Self-Recovery
+│   ├── backup-manager.js         # 📦 Universal JSON Backup & Restore Engine
+│   ├── mental-health-insights.js # 📊 Mesin Analisis Tren & Kecenderungan Emosi
+│   ├── guidance-manager.js       # 💡 Panduan Lengkap Cara Pakai & Jaminan Bebas Bocor
+│   ├── kespro-app.js             # 🌸 Logika aplikasi Kespro Space
+│   ├── kespro-content.js         # 📚 30 Bab lengkap Kespro Remaja
+│   ├── selfhelp-app.js           # 🧠 Logika aplikasi Self Help Workbook
+│   └── selfhelp-content.js       # 📚 7 Kliping edukasi mental health
+├── assets/                       # 🖼️ Gambar anatomi, hero cover, dan ikon
+├── reproduksi/                   # 📂 Dokumen sumber asli Kespro
+└── self help/                    # 📂 Dokumen sumber asli Self Help
+```
+
+---
+
+## 🧭 Dukungan URL Hash Routing
+
+Kamu dapat membagikan atau menyimpan tautan langsung ke halaman tertentu:
+- `/#portal` : Layar utama pemilihan modul
+- `/#kespro` : Mini-web Kespro Space
+- `/#kespro/tab-interactive` : Tab Pojok Interaktif Kespro
+- `/#kespro/tab-safety` : Tab Pusat Keselamatan & SOS Kespro
+- `/#kespro/tab-notes` : Tab Catatanku & Progres Kespro
+- `/#kespro/chapter/3` : Langsung membuka bab 3 Kespro di Reader Overlay
+- `/#selfhelp` : Mini-web Self-Help Mental Health
+- `/#selfhelp/tab-jurnal` : Tab Jurnal Emosi Interaktif
+- `/#selfhelp/tab-toolkit` : Tab Latihan Resiliensi (STOP, Grounding, dll.)
+- `/#selfhelp/tab-notes` : Tab Catatan & Rencana Diri
+- `/#selfhelp/chapter/2` : Langsung membuka materi 2 di Reader Overlay

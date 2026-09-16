@@ -1,5 +1,12 @@
-node_modules
-dist
+# Dependencies & Build artifacts
+node_modules/
+dist/
+__pycache__/
+*.pyc
+
+# Raw Word Documents
+*.docx
+
+# OS metadata
 .DS_Store
-*.local
-assets
+Thumbs.db

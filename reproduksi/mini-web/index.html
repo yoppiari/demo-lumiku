@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#FFD93D">
+  <meta name="description" content="E-Book Interaktif & Panduan Kesehatan Reproduksi Remaja: Ruang Belajar Ramah Remaja">
+  <title>KESPRO SPACE • Ruang Aman Remaja</title>
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Cache Control -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  
+  <!-- CSS Styles -->
+  <link rel="stylesheet" href="css/style.css?v=4">
+</head>
+<body>
+
+<div class="phone-container memphis-bg">
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="app-header">
+    <div class="brand-tag" onclick="switchTab('tab-ebook', document.querySelector('.nav-item'))">
+      <span class="brand-badge">KESPRO</span>
+      <span class="brand-title">SPACE 🌟</span>
+    </div>
+
+    <!-- Dual-Track Switcher Pill -->
+    <div id="header-track-pill" class="track-pill girl" onclick="toggleTrackPrompt()" title="Klik untuk beralih antara Jalur Cewek dan Jalur Cowok">
+      <span>🙋‍♀️ Jalur Cewek</span>
+      <span>🔄</span>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN BODY (TABS) ==================== -->
+  <main class="app-main custom-scroll">
+
+    <!-- ==================== TAB 1: 📖 E-BOOK READER ==================== -->
+    <div id="tab-ebook" class="tab-view active">
+      
+      <!-- Hero Welcome Banner -->
+      <div class="hero-card">
+        <img src="assets/hero-cover.jpg" alt="Cover Kespro Space" class="hero-img">
+        <div class="hero-body">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span class="badge badge-pink">SAFE SPACE • NO JUDGMENT</span>
+            <span style="font-size: 10px; font-weight: 800; color: #666;">EDUKASI RESMI</span>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 17px; font-weight: 800; margin-bottom: 4px;">
+            Cerdas Menyikapi Reproduksi, Teguh Menjaga Moralitas
+          </h2>
+          <p style="font-size: 11.5px; color: #444; line-height: 1.45;">
+            Panduan komprehensif kesehatan reproduksi remaja. Bahasa santai, ramah, ilmiah, dan bebas tabu!
+          </p>
+        </div>
+      </div>
+
+      <!-- Track Switch Notice -->
+      <div class="m-card m-card-yellow" style="padding: 10px 12px; margin-bottom: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="font-size: 11.5px; font-weight: 700;">
+            🎯 <b>Jalur Aktif:</b> <span id="track-status-text">Materi dipersonalisasi</span>
+          </div>
+          <button class="btn-m btn-m-white" style="font-size: 10.5px; padding: 4px 8px;" onclick="toggleTrackPrompt()">
+            Ganti Jalur 🔄
+          </button>
+        </div>
+      </div>
+
+      <!-- Search Input -->
+      <div style="margin-bottom: 10px;">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="🔍 Cari bab, topik, atau kata kunci..." 
+          oninput="onSearchInput(this.value)"
+          style="width: 100%; padding: 10px 14px; border: var(--border-sm); border-radius: 12px; font-size: 12.5px; box-shadow: var(--shadow-sm); outline: none; background: #fff;"
+        >
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="cat-scroll-wrap">
+        <button class="cat-pill active" onclick="filterCategory('all', this)">✨ Semua Bab</button>
+        <button class="cat-pill" onclick="filterCategory('kenali', this)">🌱 Kenali Diri</button>
+        <button class="cat-pill" onclick="filterCategory('tubuh', this)">🔬 Tubuh & Anatomi</button>
+        <button class="cat-pill" onclick="filterCategory('relasi', this)">🤝 Relasi & Consent</button>
+        <button class="cat-pill" onclick="filterCategory('sehat', this)">🥗 Gizi & Medis</button>
+        <button class="cat-pill" onclick="filterCategory('keamanan', this)">🛡️ Keamanan & SOS</button>
+      </div>
+
+      <!-- Chapters List -->
+      <div id="chapter-list-container" class="chapter-list">
+        <!-- Rendered dynamically by app.js from EBOOK_CHAPTERS -->
+      </div>
+
+    </div>
+
+    <!-- ==================== TAB 2: 🎮 POJOK INTERAKTIF (CLOSED CARD HUB) ==================== -->
+    <div id="tab-interactive" class="tab-view">
+
+      <div class="m-card m-card-yellow">
+        <span class="badge badge-mint">INTERACTIVE TOOLKIT</span>
+        <h2 style="font-family: var(--font-heading); font-size: 17px; margin-bottom: 4px;">Pojok Eksplorasi & Praktik 🎮</h2>
+        <p style="font-size: 12px; color: #444; line-height: 1.4;">
+          Pilih salah satu alat interaktif di bawah untuk menguji pemahaman, menghitung asupan jajan, dan mengeksplorasi tubuhmu!
+        </p>
+      </div>
+
+      <!-- Closed Card Hub (Rendered dynamically by renderInteractiveHub() in app.js based on currentTrack) -->
+      <div id="interactive-hub-container"></div>
+
+    </div>
+
+    <!-- ==================== TAB 3: 🛡️ SAFETY & SOS (CLOSED CARD HUB) ==================== -->
+    <div id="tab-safety" class="tab-view">
+
+      <div class="m-card m-card-yellow">
+        <span class="badge badge-pink">PERLINDUNGAN DIRI</span>
+        <h2 style="font-family: var(--font-heading); font-size: 17px; margin-bottom: 4px;">Pusat Keselamatan & Bantuan 🛡️</h2>
+        <p style="font-size: 12px; color: #444; line-height: 1.4;">
+          Kesiapsiagaan darurat pribadi, panduan tanggap pelecehan/kekerasan, dan akses layanan kesehatan ramah remaja.
+        </p>
+      </div>
+
+      <!-- Card 1: Safety Plan Pocket Card -->
+      <div class="tool-hub-card" onclick="openInteractiveTool('safety_card')">
+        <div class="tool-hub-header">
+          <span class="badge badge-mint">EMERGENCY CARD</span>
+          <span style="font-size: 20px;">📋</span>
+        </div>
+        <div class="tool-hub-title">Kartu Rencana Keselamatanku</div>
+        <div class="tool-hub-desc" id="safety-card-hub-desc">
+          Catat kontak orang tepercaya, tempat aman terdekat, dan sandi darurat yang tersimpan di HP-mu.
+        </div>
+        <button class="btn-m btn-m-mint btn-m-block" style="font-size: 12px; padding: 8px;">
+          Buka / Edit Kartu Darurat 👉
+        </button>
+      </div>
+
+      <!-- Card 2: Panduan Darurat Anti-Kekerasan -->
+      <div class="tool-hub-card" onclick="openInteractiveTool('safety_guide')">
+        <div class="tool-hub-header">
+          <span class="badge badge-pink">HAK & PERLINDUNGAN</span>
+          <span style="font-size: 20px;">🛡️</span>
+        </div>
+        <div class="tool-hub-title">Panduan Tanggap Darurat: Lawan Kekerasan</div>
+        <div class="tool-hub-desc">
+          Langkah konkret 1-2-3 jika kamu atau temanmu mengalami pelecehan. Ingat: Kekerasan BUKAN salah korban!
+        </div>
+        <button class="btn-m btn-m-pink btn-m-block" style="font-size: 12px; padding: 8px;">
+          Buka Panduan Darurat 👉
+        </button>
+      </div>
+
+      <!-- Card 3: PKPR Puskesmas & Kontak Darurat -->
+      <div class="tool-hub-card" onclick="openInteractiveTool('safety_hotline')">
+        <div class="tool-hub-header">
+          <span class="badge badge-blue">LAYANAN RAMAH REMAJA</span>
+          <span style="font-size: 20px;">🏥</span>
+        </div>
+        <div class="tool-hub-title">Puskesmas PKPR & Hotline Darurat Nasional</div>
+        <div class="tool-hub-desc">
+          Konsultasi gratis ramah remaja di Puskesmas (bebas stigma & privat), hotline SAPPA 129, dan Sejiwa 119.
+        </div>
+        <button class="btn-m btn-m-blue btn-m-block" style="font-size: 12px; padding: 8px;">
+          Lihat Nomor Kontak & Chat PKPR 👉
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ==================== TAB 4: 📌 CATATANKU ==================== -->
+    <div id="tab-notes" class="tab-view">
+
+      <div class="m-card m-card-yellow">
+        <span class="badge badge-mint">PERSONAL PROGRESS</span>
+        <h2 style="font-family: var(--font-heading); font-size: 17px; margin-bottom: 4px;">Catatanku & Refleksi Diri 📌</h2>
+        <p style="font-size: 12px; color: #444; line-height: 1.4;">
+          Pantau progres membacamu, simpan bab penting, dan catat afirmasi positif untuk mencintai tubuhmu sendiri.
+        </p>
+      </div>
+
+      <!-- Reading Progress Meter -->
+      <div class="m-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <span style="font-size: 12.5px; font-weight: 800;">Progres Membaca Buku</span>
+          <span id="notes-read-percent" style="font-size: 14px; font-weight: 800; color: var(--coral-pink);">0%</span>
+        </div>
+        <div class="meter-bar" style="height: 16px;">
+          <div id="notes-read-prog-bar" class="meter-fill" style="width: 0%; background-color: var(--mint-green);"></div>
+        </div>
+        <div id="notes-read-prog-text" style="font-size: 11px; color: #666;">
+          0 dari 30 Bab Selesai
+        </div>
+      </div>
+
+      <!-- Bookmarked Chapters -->
+      <div class="m-card">
+        <span class="badge badge-lavender">BAB TERSIMPAN</span>
+        <h3 style="font-family: var(--font-heading); font-size: 15px; margin-bottom: 8px;">⭐ Bab Favoritku</h3>
+        <div id="notes-bookmark-list">
+          <!-- Loaded by app.js -->
+        </div>
+      </div>
+
+      <!-- Daily Affirmations (Bab 4) -->
+      <div class="m-card m-card-mint">
+        <span class="badge badge-mint">BAB 04 • SELF-LOVE</span>
+        <h3 style="font-family: var(--font-heading); font-size: 15px; margin-bottom: 4px;">💖 3 Hal yang Aku Syukuri Hari Ini</h3>
+        <p style="font-size: 11.5px; color: #444; margin-bottom: 8px;">
+          Latihan membangun konsep diri positif & menghentikan rasa minder:
+        </p>
+        <textarea 
+          id="daily-aff-input" 
+          rows="4" 
+          placeholder="1. Aku bersyukur tubuhku sehat...&#10;2. Aku bangga hari ini bisa...&#10;3. Aku ingin belajar hal baru yaitu..." 
+          style="width: 100%; padding: 10px; border: var(--border-sm); border-radius: 10px; font-size: 12px; outline: none; background: #fff;"
+        ></textarea>
+        <button class="btn-m btn-m-mint btn-m-block" style="margin-top: 8px;" onclick="saveAffirmation()">
+          Simpan ke Catatan Pribadi 💾
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ==================== BOTTOM NAVIGATION (4 TABS) ==================== -->
+  <nav class="app-nav">
+    <div class="nav-item active" onclick="switchTab('tab-ebook', this)">
+      <span class="nav-icon">📖</span>
+      <span>E-Book</span>
+    </div>
+    <div class="nav-item" onclick="switchTab('tab-interactive', this)">
+      <span class="nav-icon">🎮</span>
+      <span>Interaktif</span>
+    </div>
+    <div class="nav-item" onclick="switchTab('tab-safety', this)">
+      <span class="nav-icon">🛡️</span>
+      <span>Safety</span>
+    </div>
+    <div class="nav-item" onclick="switchTab('tab-notes', this)">
+      <span class="nav-icon">📌</span>
+      <span>Catatanku</span>
+    </div>
+  </nav>
+
+  <!-- ==================== IN-APP CHAPTER READER OVERLAY ==================== -->
+  <div id="reader-overlay" class="reader-overlay">
+    <!-- Scroll Progress Indicator -->
+    <div id="reader-prog-bar" class="reader-prog-bar"></div>
+
+    <!-- Reader Sticky Top Bar -->
+    <div class="reader-header">
+      <button class="btn-m btn-m-white" style="font-size: 11px; padding: 4px 8px;" onclick="closeReader()">
+        ← Kembali
+      </button>
+      <div style="flex: 1; text-align: center; overflow: hidden; padding: 0 4px;">
+        <div id="reader-category" style="font-size: 9.5px; font-weight: 800; color: #666; text-transform: uppercase;"></div>
+        <div id="reader-title" style="font-family: var(--font-heading); font-size: 12.5px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></div>
+      </div>
+      <div style="display: flex; gap: 4px; align-items: center;">
+        <button class="btn-m btn-m-white" style="font-size: 11px; padding: 4px 6px;" onclick="changeFontSize()" title="Ubah Ukuran Teks">
+          A±
+        </button>
+        <button id="reader-bm-btn" class="btn-m btn-m-white" style="font-size: 11px; padding: 4px 6px;" onclick="toggleBookmarkCurrent()" title="Simpan Bab">
+          ☆
+        </button>
+      </div>
+    </div>
+
+    <!-- Reader Scrollable Content -->
+    <div id="reader-content" class="reader-body custom-scroll" onscroll="updateReadingProgress()">
+      <!-- Injected dynamically by app.js -->
+    </div>
+
+    <!-- Reader Bottom Navigation Bar -->
+    <div style="background: #fff; border-top: var(--border-sm); padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; z-index: 10;">
+      <button id="reader-prev-btn" class="btn-m btn-m-white" style="font-size: 11px; padding: 6px 10px;" onclick="navigateChapter(-1)">
+        ← Bab Sebelumnya
+      </button>
+      <button id="reader-mark-read-btn" class="btn-m btn-m-white" style="font-size: 11px; padding: 6px 10px;" onclick="toggleReadCurrent()">
+        ✔️ Tandai Selesai
+      </button>
+      <button id="reader-next-btn" class="btn-m btn-m-yellow" style="font-size: 11px; padding: 6px 10px;" onclick="navigateChapter(1)">
+        Bab Berikutnya →
+      </button>
+    </div>
+  </div>
+
+
+
+</div>
+
+  <!-- ==================== FOCUSED TOOL MODAL OVERLAY ==================== -->
+  <div id="tool-modal-overlay" class="tool-modal-overlay">
+    <div class="tool-modal-header">
+      <button class="btn-m btn-m-white" style="font-size: 11px; padding: 4px 8px;" onclick="closeInteractiveTool()">
+        ← Kembali
+      </button>
+      <div style="flex: 1; text-align: center; overflow: hidden; padding: 0 4px;">
+        <div id="tool-modal-badge" style="font-size: 9.5px; font-weight: 800; color: #666; text-transform: uppercase;"></div>
+        <div id="tool-modal-title" style="font-family: var(--font-heading); font-size: 12.5px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></div>
+      </div>
+      <button class="btn-m btn-m-white" style="font-size: 11px; padding: 4px 8px;" onclick="closeInteractiveTool()">
+        ✕
+      </button>
+    </div>
+
+    <!-- Dynamic Modal Body for Selected Tool -->
+    <div id="tool-modal-body" class="tool-modal-body custom-scroll">
+      <!-- Tool contents injected dynamically -->
+    </div>
+  </div>
+
+<!-- Scripts -->
+<script src="js/ebook-content.js?v=4"></script>
+<script src="js/app.js?v=4"></script>
+</body>
+</html>
