@@ -115,8 +115,8 @@ const WebtoonPanel = ({
 
 // Webtoon Comic Speech Bubble
 const SpeechBubble = ({ 
-  speaker = "DR. HENKY", 
-  avatar = "👨‍⚕️", 
+  speaker = "TIM KONSELOR", 
+  avatar = "🧑‍🏫", 
   children, 
   direction = "left", 
   bgColor = "bg-white",
@@ -227,7 +227,7 @@ const Beranda = ({ data, updateData }) => (
         <div className="flex items-center gap-2">
           <span className="w-3 h-3 rounded-full bg-[#FA2A55] inline-block animate-pulse" />
           <span className="font-mono text-xs font-black uppercase text-[#0D2C54] tracking-widest">
-            DR. HENKY PRESS // ZINE ISSUE #01
+            RUANG TUMBUH PRESS // ZINE ISSUE #01
           </span>
         </div>
         <div className="flex items-center gap-1.5 font-mono text-[10px] text-[#0D2C54]">
@@ -293,7 +293,7 @@ const Beranda = ({ data, updateData }) => (
 
       {/* Panel Disclaimer Medis */}
       <WebtoonPanel sceneNumber="WARNING" title="PANDUAN & DISCLAIMER" accent="yellow">
-        <SpeechBubble speaker="DR. HENKY" avatar="👨‍⚕️">
+        <SpeechBubble speaker="TIM KONSELOR" avatar="🧑‍🏫">
           "Zine ini adalah teman berlatih harian (self-help) dan panduan refleksi emosi, <strong>bukan pengganti diagnosis atau konseling medis</strong>."
         </SpeechBubble>
 
@@ -341,7 +341,7 @@ const Materi = () => (
 
     {/* Materi 1 */}
     <WebtoonPanel sceneNumber="BAB 01" title="MENGENAL KESEHATAN MENTAL" accent="blue">
-      <SpeechBubble speaker="DR. HENKY">
+      <SpeechBubble speaker="TIM KONSELOR">
         "Kesehatan mental itu sama pentingnya dengan kesehatan fisik. Pikiran, emosi, dan tindakanmu selalu saling terhubung dalam lingkaran tak terlihat."
       </SpeechBubble>
 
@@ -404,7 +404,7 @@ const Materi = () => (
 
     {/* Materi 3 */}
     <WebtoonPanel sceneNumber="BAB 03" title="EMOSI BUKANLAH MUSUH" accent="yellow">
-      <SpeechBubble speaker="DR. HENKY">
+      <SpeechBubble speaker="TIM KONSELOR">
         "Marah, cemas, atau sedih bukan berarti kamu 'rusak'. Semua emosi adalah sistem alarm bawaan tubuh untuk melindungimu."
       </SpeechBubble>
 
@@ -1101,7 +1101,7 @@ export default function RisographApp({
 
   const tabs = [
     { id: 'beranda', label: 'Cover & Profil', icon: '📖', badge: 'VOL.1' },
-    { id: 'bacaan', label: 'Pojok Baca dr. Henky', icon: '📚', badge: '3 BAB' },
+    { id: 'bacaan', label: 'Pojok Baca Remaja', icon: '📚', badge: '3 BAB' },
     { id: 'emosi', label: 'Jurnal Emosi Harian', icon: '🤝', badge: 'DIARY' },
     { id: 'pikiran', label: 'Kelola Pikiran Negatif', icon: '🧠', badge: 'S-T-O-P' },
     { id: 'kekuatan', label: 'Kekuatan Batin Diri', icon: '✨', badge: 'SURVIVE' },
@@ -1157,7 +1157,7 @@ export default function RisographApp({
           </span>
           <div>
             <h1 className="font-mono font-black text-sm uppercase tracking-tight text-[#0D2C54]">RISO ZINE EDITION</h1>
-            <p className="text-[10px] font-mono text-[#FA2A55]">DR. HENKY PRESS</p>
+            <p className="text-[10px] font-mono text-[#FA2A55]">RUANG TUMBUH PRESS</p>
           </div>
         </div>
         <button 

@@ -1101,44 +1101,6 @@ export default function MemphisApp({
             📑 Cetak Seluruh Buku
           </button>
 
-          {/* Navigasi Alternatif Lain */}
-          <div className="pt-2 border-t-3 border-dashed border-black space-y-2">
-            <span className="text-xs font-black uppercase text-gray-500 flex items-center justify-between">
-              <span>🎨 Ganti Desain:</span>
-              <span className="bg-[#06D6A0] text-black px-1.5 py-0.5 rounded text-[10px] font-black">Style 3 Aktif</span>
-            </span>
-            <div className="grid grid-cols-2 gap-1.5">
-              <button 
-                type="button"
-                onClick={() => onSelectStyle ? onSelectStyle(1) : (window.location.href = './index.html')}
-                className="w-full py-2 px-1 font-black uppercase text-xs rounded-xl border-2 border-black bg-[#FFE066] text-black hover:opacity-90 transition-all shadow-[2px_2px_0px_0px_#000] flex items-center justify-center gap-1"
-              >
-                <span>⚡ Style 1</span>
-              </button>
-              <button 
-                type="button"
-                onClick={() => onSelectStyle ? onSelectStyle(2) : (window.location.href = './scrapbook.html')}
-                className="w-full py-2 px-1 font-black uppercase text-xs rounded-xl border-2 border-black bg-[#FFE5D9] text-[#4a3525] hover:opacity-90 transition-all shadow-[2px_2px_0px_0px_#000] flex items-center justify-center gap-1"
-              >
-                <span>📓 Style 2</span>
-              </button>
-              <button 
-                type="button"
-                onClick={() => onSelectStyle ? onSelectStyle(3) : null}
-                className="w-full py-2 px-1 font-black uppercase text-xs rounded-xl border-2 border-black bg-black text-[#06D6A0] shadow-none flex items-center justify-center gap-1"
-              >
-                <span>🎨 Style 3</span>
-              </button>
-              <button 
-                type="button"
-                onClick={() => onSelectStyle ? onSelectStyle(4) : (window.location.href = './risograph.html')}
-                className="w-full py-2 px-1 font-black uppercase text-xs rounded-xl border-2 border-black bg-[#FA2A55] text-white hover:opacity-90 transition-all shadow-[2px_2px_0px_0px_#000] flex items-center justify-center gap-1"
-              >
-                <span>🖨️ Style 4</span>
-              </button>
-            </div>
-          </div>
-
           <div className="p-2.5 border-3 border-black bg-[#FFF3B0] rounded-xl text-xs font-black text-center shadow-[2px_2px_0px_#000]">
             🔒 Tersimpan otomatis di perambanmu.
           </div>
