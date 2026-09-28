@@ -145,7 +145,7 @@ function renderKesproChapterList(cat = kesproActiveCategory, search = kesproSear
               <span>${starBadge}${chap.icon || ''}</span>
               <span>${chap.title}</span>
             </div>
-            ${chap.hook ? `<div style="font-size: 11px; color: #52525B; margin: 2px 0 4px 0; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${chap.hook}</div>` : ''}
+            ${chap.hook ? `<div class="chapter-desc">${chap.hook}</div>` : ''}
             <div class="chapter-meta" style="display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-top: 3px;">
               <span class="badge ${getKesproCategoryBadge(chap.category)}" style="margin: 0; font-size: 8.5px;">${chap.category}</span>
               ${trackBadge}

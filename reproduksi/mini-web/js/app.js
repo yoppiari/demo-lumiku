@@ -191,7 +191,7 @@ function renderChapterList(cat = currentCatFilter, query = '') {
               ${trackBadge}
             </div>
             <div class="chapter-title">${c.icon} ${c.title}</div>
-            ${c.hook ? `<div style="font-size: 11px; color: #52525B; margin: 2px 0 4px 0; line-height: 1.35;">${c.hook}</div>` : ''}
+            ${c.hook ? `<div class="chapter-desc">${c.hook}</div>` : ''}
             <div class="chapter-meta">
               <span>⏱️ ${c.readTime || '±3 mnt baca'}</span>
               ${isBookmarked ? '<span>• ⭐ Tersimpan</span>' : ''}

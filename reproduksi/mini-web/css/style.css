@@ -419,6 +419,18 @@ body {
   margin-bottom: 4px;
 }
 
+.chapter-desc {
+  font-size: 12px;
+  font-weight: 500;
+  color: #27272A;
+  line-height: 1.42;
+  margin: 2px 0 5px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .chapter-meta {
   display: flex;
   gap: 6px;
