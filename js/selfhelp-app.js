@@ -491,7 +491,7 @@ function openSelfHelpTool(toolKey) {
   if (!overlay || !bodyEl) return;
 
   if (toolKey === 'stop_method') {
-    badgeEl.innerText = 'REDALKAN OVERTHINKING';
+    badgeEl.innerText = 'REDAKAN OVERTHINKING';
     titleEl.innerText = '🛑 Metode S-T-O-P';
     bodyEl.innerHTML = `
       <div class="m-card">
