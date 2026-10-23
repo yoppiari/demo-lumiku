@@ -3,17 +3,17 @@
 // Offline-First Caching Strategy & Zero-Database Architecture
 // ==========================================================================
 
-const CACHE_NAME = 'ruang-tumbuh-v1.1';
+const CACHE_NAME = 'ruang-tumbuh-v1.2';
 const CORE_ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './css/memphis-unified.css?v=20260928_v1',
-  './js/kespro-content.js?v=20260910_v16',
-  './js/selfhelp-content.js?v=20260910_v16',
-  './js/kespro-app.js?v=20260928_v1',
-  './js/selfhelp-app.js?v=20260928_v1',
-  './js/portal.js?v=20260910_v16',
+  './css/memphis-unified.css?v=20261023_v1',
+  './js/kespro-content.js?v=20261023_v1',
+  './js/selfhelp-content.js?v=20261023_v1',
+  './js/kespro-app.js?v=20261023_v1',
+  './js/selfhelp-app.js?v=20261023_v1',
+  './js/portal.js?v=20261023_v1',
   './js/security-manager.js',
   './js/backup-manager.js',
   './js/mental-health-insights.js',
