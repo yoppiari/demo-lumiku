@@ -816,6 +816,33 @@ body::before {
   overflow: hidden;
 }
 
+/* Original partner artwork: fixed optical widths, intrinsic aspect ratios.
+   Container units also scale correctly in desktop phone simulation mode. */
+.portal-partner-logos {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.portal-partner-logos img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.portal-logo-dies {
+  width: clamp(112px, 28cqi, 128px);
+}
+
+.portal-logo-unair {
+  width: clamp(240px, 61cqi, 280px);
+}
+
 .portal-hero-title {
   font-family: var(--font-heading);
   font-size: 23px;
