@@ -836,11 +836,15 @@ body::before {
 }
 
 .portal-logo-dies {
-  width: clamp(112px, 28cqi, 128px);
+  width: clamp(120px, 30cqi, 136px);
 }
 
-.portal-logo-unair {
-  width: clamp(240px, 61cqi, 280px);
+/* Generated PNG has transparent padding; crop only the empty canvas vertically.
+   object-fit: cover scales uniformly, preserving the capsule and lettering. */
+.portal-partner-logos .portal-logo-unair {
+  width: clamp(280px, 80cqi, 340px);
+  aspect-ratio: 6 / 1;
+  object-fit: cover;
 }
 
 .portal-hero-title {

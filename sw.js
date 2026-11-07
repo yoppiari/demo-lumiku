@@ -3,12 +3,12 @@
 // Offline-First Caching Strategy & Zero-Database Architecture
 // ==========================================================================
 
-const CACHE_NAME = 'ruang-tumbuh-preview-logos-v1';
+const CACHE_NAME = 'ruang-tumbuh-preview-logos-v2';
 const CORE_ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './css/memphis-unified.css?v=20261107_logos',
+  './css/memphis-unified.css?v=20261107_transparent_v2',
   './js/kespro-content.js?v=20261023_v1',
   './js/selfhelp-content.js?v=20261023_v1',
   './js/kespro-app.js?v=20261023_v1',
@@ -18,8 +18,8 @@ const CORE_ASSETS = [
   './js/backup-manager.js',
   './js/mental-health-insights.js',
   './js/guidance-manager.js',
-  './assets/dies-natalis-fk-unair.jpg',
-  './assets/unair-fakultas-kedokteran.jpg',
+  './assets/dies-natalis-transparent.png',
+  './assets/unair-fk-transparent.png',
   './assets/icon-192.png',
   './assets/icon-512.png',
   './assets/icon.svg',
